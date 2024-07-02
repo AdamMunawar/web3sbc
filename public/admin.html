@@ -1,0 +1,121 @@
+<!-- admin.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome, Admin!</h1>
+
+    <h2>Data Pengguna</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody id="user-table-body">
+            <!-- Data pengguna akan dimasukkan melalui JavaScript -->
+        </tbody>
+    </table>
+
+    <h2>Data Registrasi</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Birth Date</th>
+                <th>NIK</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="registration-table-body">
+            <!-- Data registrasi akan dimasukkan melalui JavaScript -->
+        </tbody>
+    </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // Fungsi untuk mengambil dan menampilkan data pengguna
+        function fetchUsers() {
+            axios.get('/admin/users')
+                .then(response => {
+                    const users = response.data;
+                    const userTableBody = document.getElementById('user-table-body');
+                    userTableBody.innerHTML = '';
+                    users.forEach(user => {
+                        const row = `<tr>
+                            <td>${user.id}</td>
+                            <td>${user.email}</td>
+                            <td>${user.role}</td>
+                        </tr>`;
+                        userTableBody.innerHTML += row;
+                    });
+                })
+                .catch(error => console.error('Error fetching users:', error));
+        }
+
+        // Fungsi untuk mengambil dan menampilkan data registrasi
+        function fetchRegistrations() {
+            axios.get('/admin/registrations')
+                .then(response => {
+                    const registrations = response.data;
+                    const registrationTableBody = document.getElementById('registration-table-body');
+                    registrationTableBody.innerHTML = '';
+                    registrations.forEach(registration => {
+                        const row = `<tr>
+                            <td>${registration.id}</td>
+                            <td>${registration.fullName}</td>
+                            <td>${registration.birthDate}</td>
+                            <td>${registration.nik}</td>
+                            <td>
+                                <button onclick="editRegistration(${registration.id})">Edit</button>
+                                <button onclick="deleteRegistration(${registration.id})">Delete</button>
+                            </td>
+                        </tr>`;
+                        registrationTableBody.innerHTML += row;
+                    });
+                })
+                .catch(error => console.error('Error fetching registrations:', error));
+        }
+
+        // Panggil fungsi fetchUsers dan fetchRegistrations saat halaman dimuat
+        fetchUsers();
+        fetchRegistrations();
+
+        // Fungsi untuk mengedit data registrasi
+        function editRegistration(id) {
+            // Implementasikan fungsi edit sesuai kebutuhan Anda
+            console.log('Edit registration with ID:', id);
+            // Contoh: redirect ke halaman edit atau buka dialog edit
+        }
+
+        // Fungsi untuk menghapus data registrasi
+        function deleteRegistration(id) {
+            // Implementasikan fungsi delete sesuai kebutuhan Anda
+            console.log('Delete registration with ID:', id);
+            // Contoh: konfirmasi dan kirim permintaan DELETE
+        }
+    </script>
+</body>
+</html>

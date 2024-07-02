@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Pendaftar</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Pendaftar</h1>
+        <form id="edit-form">
+            <input type="hidden" id="edit-id" name="id">
+            <label for="edit-fullName">Nama Lengkap:</label>
+            <input type="text" id="edit-fullName" name="fullName" required>
+            <label for="edit-birthDate">Tanggal Lahir:</label>
+            <input type="date" id="edit-birthDate" name="birthDate" required>
+            <label for="edit-nik">NIK:</label>
+            <input type="text" id="edit-nik" name="nik" required>
+            <label for="edit-parentName">Nama Orang Tua:</label>
+            <input type="text" id="edit-parentName" name="parentName" required>
+            <label for="edit-schoolOrigin">Asal Sekolah:</label>
+            <input type="text" id="edit-schoolOrigin" name="schoolOrigin" required>
+            <label for="edit-schoolTarget">Sekolah Tujuan:</label>
+            <input type="text" id="edit-schoolTarget" name="schoolTarget" required>
+            <label for="edit-majorChoice">Pilihan Jurusan:</label>
+            <input type="text" id="edit-majorChoice" name="majorChoice" required>
+            <button type="submit">Simpan</button>
+        </form>
+    </div>
+    <script src="js/edit-pendaftar.js"></script>
+</body>
+</html>

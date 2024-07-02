@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <body>
+        <nav class="navbar">
+            <a href="#" class="navbar-logo"><img src="/gbr/p3sbbb.png" class="navbar-p3sb-logo"> Sumur Bandung Media</a>
+            <div class="navbar-nav" id="navbarNav"></div>
+            <div class="navbar-extra">
+                <a href="/logout" id="log-out"><i data-feather="log-out"></i></a>
+                <a href="#" id="modeToggle"><i data-feather="moon"></i></a>
+                <a href="#" id="hamburgerMenu"><i data-feather="menu"></i></a>
+            </div>
+            
+        </nav>
+        <section id="submis" class="submis">
+        <div class="row">
+            <h2>Formulir Pendaftaran Santri Baru</h2>
+            <form id="registerForm" action="/pendaftaran" method="POST" enctype="multipart/form-data">
+                <div class="input-grups">
+                    <label for="fullName">Nama Lengkap</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                <div class="input-grups">
+                    <label for="birthDate">Tanggal Lahir</label>
+                    <input type="date" id="birthDate" name="birthDate" required>
+                </div>
+                <div class="input-grups">
+                    <label for="nik">NIK</label>
+                    <input type="text" id="nik" name="nik" required>
+                </div>
+                <div class="input-grups">
+                    <label for="parentName">Nama Orang Tua</label>
+                    <input type="text" id="parentName" name="parentName" required>
+                </div>
+                <div class="input-grups">
+                    <label for="schoolOrigin">Asal Sekolah</label>
+                    <input type="text" id="schoolOrigin" name="schoolOrigin" required>
+                </div>
+                <div class="input-grups">
+                    <label for="schoolTarget">Tujuan Sekolah</label>
+                    <select id="schoolTarget" name="schoolTarget" required>
+                        <option value="SMP">SMP</option>
+                        <option value="MTs">MTs</option>
+                        <option value="SMA">SMA</option>
+                        <option value="MA">MA</option>
+                    </select>
+                </div>
+                <div class="input-grups">
+                    <label for="majorChoice">Jurusan Pilihan</label>
+                    <select id="majorChoice" name="majorChoice" required>
+                        <option value="Tahfidz">Tahfidz</option>
+                        <option value="Kitab">Kitab</option>
+                    </select>
+                </div>
+                <div class="input-grups">
+                    <label for="documents">Berkas (Ijazah/SKL, KK, KTP Orang Tua)</label>
+                    <input type="file" id="documents" name="documents" multiple required>
+                </div>
+                <button type="submit" class="btn">Daftar</button>
+            </form>
+        </div>
+        </section>
+        <footer>
+            <div class="socials">
+                <a href="#"><i data-feather="github"></i></a>
+                <a href="#"><i data-feather="instagram"></i></a>
+                <a href="#"><i data-feather="youtube"></i></a>
+            </div>
+            <div class="links">
+                <a href="#home">Beranda</a>
+                <a href="#about">Tentang Kami</a>
+                <a href="#contact">Kontak</a>
+            </div>
+            <div class="credit">
+                <p>&copy; 2024 <a href="">adamsrdj</a>. All Rights Reserved</p>
+            </div>
+        </footer>
+        
+        <script src="js/script.js"></script>
+        <script src="app.js"></script>
+        </form>
+    </div>
+        </body>
+</html>

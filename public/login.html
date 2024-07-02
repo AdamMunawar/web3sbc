@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P3SB CILILIN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section class="hero" id="home">
+        <main class="content">
+            <img src="/gbr/p3sbbb.png" class="hero-img" alt="Hero Image">
+            <h1><span>Website Resmi</span> Pondok Pesantren Pembangunan Sumur Bandung</h1>
+       
+        </main>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm" action="/login" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <button type="button" id="togglePassword" class="btnn">Show</button>
+            </div>
+            <a class = "daftar" href="daftar.html">Belum daftar | Daftar di sini </a>
+            <button class ="button" type="submit">Login </button>
+            <p id="errorMessage" class="error-message"></p>
+        </form>
+    </div>
+    </section>
+    <footer>
+        <div class="socials">
+            <a href="#"><i data-feather="github"></i></a>
+            <a href="#"><i data-feather="instagram"></i></a>
+            <a href="#"><i data-feather="youtube"></i></a>
+        </div>
+        <div class="links">
+            <a href="#home">Beranda</a>
+            <a href="#about">Tentang Kami</a>
+            <a href="#contact">Kontak</a>
+        </div>
+        <div class="credit">
+            <p>&copy; 2024 <a href="">adamsrdj</a>. All Rights Reserved</p>
+        </div>
+    </footer>
+    <script src="/p3sb-server/app.js"></script>
+    <script src="js/togglePasswordVisibility.js"></script>
+</body>
+</html>

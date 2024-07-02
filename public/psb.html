@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P3SB CILILIN</title>
+    <!-- Link untuk font Poppins dari Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Panggil pustaka Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Link untuk style CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <script> async function submitForm(event) {
+        event.preventDefault();
+        const form = document.getElementById('pendaftaranForm');
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch('/pendaftaran', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert(result.message);
+            } else {
+                alert('Error: ' + result.message);
+            }
+        } catch (error) {
+            alert('Error: ' + error.message);
+        }
+    }</script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="navbar-logo"><img src="/gbr/p3sbbb.png" class="navbar-p3sb-logo" alt="Logo"> Sumur Bandung Media</a>
+        <div class="navbar-nav" id="navbarNav"></div>
+        <div class="navbar-extra">
+            <a href="#" id="log-out"><i data-feather="log-out"></i></a>
+            <a href="#" id="modeToggle"><i data-feather="moon"></i></a>
+            <a href="#" id="hamburgerMenu"><i data-feather="menu"></i></a>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2><span>Informasi Pendaftaran </span>Santri Baru</h2>
+        <div class="row">
+            <div class="about-img">
+                <img src="/gbr/gambarabt.jpeg" alt="Tentang Kami">
+            </div>
+            <div class="content">
+                <p>Pondok Pesantren Pembangunan Sumur Bandung (P3SB) didirikan pada tahun 1973 oleh K.H. A. Supardan bersama para tokoh antara lain K.H. Ja’far Martasutisna, K.H. Mayor A. Ma’mun, dan Prof. K.H. Rd. Abdullah Bin Nuh. Memiliki luas tanah sekitar 6 ha mencakup kompleks putra dan putri yang terpisah, hal tersebut memberikan keleluasaan dalam melaksanakan proses belajar mengajar santri. Pondok Pesantren Pembangunan Sumur Bandung memiliki jenjang pendidikan dimulai dari TPA, TK, SD, MTs, MA, SMP, dan SMA disertai dengan Dirosah Islamiyah.</p>
+                <a id="registerBtn" class="btn">Daftar Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pengurus Yayasan Section -->
+    <section id="kadiv" class="kadiv-p3sb">
+        <h2>Pengurus Yayasan</h2>
+        <div class="kepaladiv">
+            <div class="kadiv">
+                <div class="about-img">
+                    <img src="/gbr/gambarabt.jpeg" alt="Ketua Yayasan">
+                </div>
+                <div class="content">
+                    <h3>Ketua Yayasan</h3>
+                    <p> KH. Ari Gumanti, ST, S.Sos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="socials">
+            <a href="#"><i data-feather="github"></i></a>
+            <a href="#"><i data-feather="instagram"></i></a>
+            <a href="#"><i data-feather="youtube"></i></a>
+        </div>
+        <div class="links">
+            <a href="#home">Beranda</a>
+            <a href="#about">Tentang Kami</a>
+            <a href="#contact">Kontak</a>
+        </div>
+        <div class="credit">
+            <p>&copy; 2024 <a href="#">adamsrdj</a>. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk mengganti icon dengan Feather Icons -->
+    <script>
+        // Fungsi untuk mengganti icon menggunakan Feather Icons
+        feather.replace();
+
+        // Event listener untuk tombol Daftar Sekarang
+        document.getElementById('registerBtn').addEventListener('click', function() {
+            fetch('/check-login')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.loggedIn) {
+                        window.location.href = '/form-daftar.html';
+                    } else {
+                        window.location.href = '/login.html';
+                    }
+                });
+        });
+    </script>
+
+    <!-- Script tambahan dari file JavaScript eksternal -->
+    <script src="/js/script.js"></script>
+    <!-- Script untuk aplikasi server (jika diperlukan) -->
+    <script src="/p3sb-server/app.js"></script>
+</body>
+</html>
